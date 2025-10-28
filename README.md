@@ -33,37 +33,7 @@ El dataset utilizado es **`siniestros_viales_bogota.csv`**, que contiene columna
 
 📍 **Fuente:** Datos abiertos de la Alcaldía de Bogotá (o fuente utilizada en tu práctica).
 
----
 
-## ⚙️ Arquitectura de la Solución
-
-```text
-        +---------------------+
-        | siniestros_viales   |
-        |  (archivo CSV)      |
-        +----------+----------+
-                   |
-                   v
-         +------------------+
-         |  Apache Kafka    |
-         | (topic: siniestros_viales)
-         +------------------+
-                   |
-                   v
-         +------------------+
-         |  Spark Streaming |
-         |  (PySpark)       |
-         +------------------+
-                   |
-                   v
-         +------------------+
-         |   DataFrame API  |
-         |  (análisis y     |
-         |  transformaciones)
-         +------------------+
-````
-
----
 
 ## 🖥️ Requisitos del Entorno
 
