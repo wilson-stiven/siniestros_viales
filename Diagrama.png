@@ -1,0 +1,53 @@
+┌─────────────────────────────────────────────────┐
+│           ARQUITECTURA DEL SISTEMA              │
+└─────────────────────────────────────────────────┘
+
+┌──────────────────┐
+│  Datos CSV       │
+│  accidentes.csv  │
+│  50K registros   │
+└────────┬─────────┘
+         │
+         ▼
+┌─────────────────────────────────────────────────┐
+│         PROCESAMIENTO BATCH (Spark)             │
+├─────────────────────────────────────────────────┤
+│  • Leer datos CSV                               │
+│  • Limpieza y transformación                    │
+│  • Análisis con RDDs                            │
+│  • Agregaciones con DataFrames                  │
+│  • Identificar patrones                         │
+└────────┬────────────────────────────────────────┘
+         │
+         ▼
+┌─────────────────────────────────────────────────┐
+│         RESULTADOS BATCH                        │
+│  • Top localidades (CSV)                        │
+│  • Datos procesados (Parquet)                   │
+│  • Resumen ejecutivo                            │
+└─────────────────────────────────────────────────┘
+
+
+┌──────────────────┐
+│ Kafka Producer   │
+│ Simula eventos   │
+│ en tiempo real   │
+└────────┬─────────┘
+         │
+         ▼
+┌─────────────────────────────────────────────────┐
+│       PROCESAMIENTO STREAMING (Spark)           │
+├─────────────────────────────────────────────────┤
+│  • Consumir de Kafka                            │
+│  • Ventanas de 1 minuto                         │
+│  • Análisis en tiempo real                      │
+│  • Sistema de alertas                           │
+└────────┬────────────────────────────────────────┘
+         │
+         ▼
+┌─────────────────────────────────────────────────┐
+│         SALIDA TIEMPO REAL                      │
+│  • Consola con estadísticas                     │
+│  • Alertas de accidentes graves                 │
+│  • Spark UI (puerto 4040)                       │
+└─────────────────────────────────────────────────┘
